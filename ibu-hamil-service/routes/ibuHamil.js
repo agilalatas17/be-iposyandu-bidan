@@ -7,8 +7,25 @@ router.get('/', function (req, res, next) {
 });
 
 // POST
-router.post('/', (req, res) => {
-  const nama = req.body.nama;
+router.post('/tambah-ibu-hamil', (req, res) => {
+  const {
+    tanggalDaftar,
+    nik,
+    nama,
+    hpht,
+    taksiranPersalinan,
+    tempatLahir,
+    tanggalLahir,
+    pendidikanTerakhir,
+    pekerjaan,
+    alamat,
+    telepon,
+    golonganDarah,
+    pembiayaan,
+    noJkn,
+    faskes,
+    faskesRujukan,
+  } = req.body;
 });
 
 module.exports = router;
