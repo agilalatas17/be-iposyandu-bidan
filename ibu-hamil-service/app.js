@@ -5,7 +5,7 @@ let cookieParser = require('cookie-parser');
 let logger = require('morgan');
 
 let indexRouter = require('./routes/index');
-let ibuHamilRouter = require('./routes/ibu-hamil');
+let ibuHamilRouter = require('./routes/ibuHamil');
 
 let app = express();
 
@@ -16,6 +16,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/ibu-hamil', usersRouter);
+app.use('/ibu-hamil', ibuHamilRouter);
 
 module.exports = app;
