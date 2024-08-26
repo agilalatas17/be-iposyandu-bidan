@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
-  const IbuHamil = sequelize.define(
-    'IbuHamil',
+  const IbuHamilModel = sequelize.define(
+    'IbuHamilModel',
     {
       id: {
         type: DataTypes.UUID,
@@ -21,25 +21,31 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      hari_pertama_haid_terakhir: {
+      hpht: {
         type: DataTypes.DATE,
+        field: 'hari_pertama_haid_terakhir',
         allowNull: false,
       },
-      taksiran_persalinan: {
+      taksiranPersalinanDate: {
         type: DataTypes.DATE,
+        field: 'taksiran_persalinan',
         allowNull: false,
       },
-      tempat_lahir: {
+      tempatLahir: {
         type: DataTypes.STRING,
+        field: 'tempat_lahir',
         allowNull: false,
       },
-      tanggal_lahir: {
+      tanggalLahir: {
         type: DataTypes.DATE,
+        field: 'tanggal_lahir',
         allowNull: false,
       },
-      pendidikan_terakhir: {
+      pendidikanTerakhir: {
         type: DataTypes.ENUM,
+        field: 'pendidikan_terakhir',
         values: ['-', 'SD', 'SMP', 'SMA', 'D3', 'S1', 'S2', 'S3'],
+        defaultValue: '-',
       },
       pekerjaan: {
         type: DataTypes.STRING,
@@ -52,25 +58,27 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      golongan_darah: {
+      golDarah: {
         type: DataTypes.ENUM,
+        field: 'golongan_darah',
         values: ['A', 'B', 'AB', 'O'],
+        defaultValue: 'A',
       },
       pembiayaan: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      no_jkn: {
+      noJkn: {
         type: DataTypes.STRING,
+        field: 'no_jkn',
         allowNull: false,
       },
       faskes: {
         type: DataTypes.STRING,
-        allowNull: false,
       },
-      faskes_rujukan: {
+      faskesRujukan: {
         type: DataTypes.STRING,
-        allowNull: false,
+        field: 'faskes_rujukan',
       },
       createdAt: {
         type: DataTypes.DATE,
@@ -93,5 +101,5 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
 
-  return IbuHamil;
+  return IbuHamilModel;
 };
