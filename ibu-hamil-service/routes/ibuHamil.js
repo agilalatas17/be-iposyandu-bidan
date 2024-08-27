@@ -1,7 +1,6 @@
 let express = require('express');
 let router = express.Router();
 let Validator = require('fastest-validator');
-
 const { IbuHamilModel } = require('../db/models');
 
 const validator = new Validator();
@@ -13,17 +12,6 @@ router.get('/', function (req, res, next) {
 
 // POST
 router.post('/', async (req, res) => {
-  const schema = {
-    id: {
-      type: 'uuid',
-      nullable: false,
-    },
-    nama: {
-      type: 'string',
-      max: 255,
-      nullable: false,
-    },
-  };
   let {
     tanggalDaftar,
     nik,

@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
       },
       tanggalDaftar: {
-        type: DataTypes.NOW,
+        type: DataTypes.DATEONLY,
         field: 'tanggal_daftar',
         allowNull: false,
       },
@@ -22,12 +22,12 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
       },
       hpht: {
-        type: DataTypes.DATE,
+        type: DataTypes.DATEONLY,
         field: 'hari_pertama_haid_terakhir',
         allowNull: false,
       },
       taksiranPersalinanDate: {
-        type: DataTypes.DATE,
+        type: DataTypes.DATEONLY,
         field: 'taksiran_persalinan',
         allowNull: false,
       },
@@ -37,7 +37,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
       },
       tanggalLahir: {
-        type: DataTypes.DATE,
+        type: DataTypes.DATEONLY,
         field: 'tanggal_lahir',
         allowNull: false,
       },

@@ -4,58 +4,61 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert(
-      'IbuHamil',
+      'ibu_hamil',
       [
         {
-          tanggalDaftar: '2024-06-28',
+          id: uuid,
+          tanggal_daftar: '2024-06-28',
           nik: '3209231909010002',
           nama: 'Siti',
-          hpht: '2024-08-01',
-          tempatLahir: 'Bandung',
-          tanggalLahir: '2001-09-19',
-          pendidikanTerakhir: 'SMA',
+          hari_pertama_haid_terakhir: '2024-08-01',
+          tempat_lahir: 'Bandung',
+          tanggal_lahir: '2001-09-19',
+          pendidikan_terakhir: 'SMA',
           pekerjaan: 'Ibu Rumah Tangga',
           alamat: 'Jl. Merdeka No. 123',
           telepon: '081234567890',
-          golonganDarah: 'O',
+          golongan_darah: 'O',
           pembiayaan: 'BPJS',
-          noJkn: '1234567890123',
+          no_jkn: '1234567890123',
           faskes: 'Faskesdsadsadsa',
-          faskesRujukan: 'Faskes B',
+          faskes_rujukan: 'Faskes B',
         },
         {
-          tanggalDaftar: '2024-10-17',
+          id: uuid,
+          tanggal_daftar: '2024-10-17',
           nik: '3209231707980003',
           nama: 'Munaroh',
-          hpht: '2024-10-01',
-          tempatLahir: 'Bandung',
-          tanggalLahir: '1998-07-17',
-          pendidikanTerakhir: 'D3',
+          hari_pertama_haid_terakhir: '2024-10-01',
+          tempat_lahir: 'Bandung',
+          tanggal_lahir: '1998-07-17',
+          pendidikan_terakhir: 'D3',
           pekerjaan: 'Ibu Rumah Tangga',
           alamat: 'Jl. Cinta Damai No. 40',
           telepon: '081234567890',
-          golonganDarah: 'a',
+          golongan_darah: 'A',
           pembiayaan: 'BPJS',
-          noJkn: '1234567894455',
+          no_jkn: '1234567894455',
           faskes: 'Faskesdsadsadsa',
-          faskesRujukan: 'Faskes B',
+          faskes_rujukan: 'Faskes B',
         },
         {
-          tanggalDaftar: '2024-02-02',
+          id: uuid,
+          tanggal_daftar: '2024-02-02',
           nik: '3209231909010004',
           nama: 'Hinata',
-          hpht: '2024-10-01',
-          tempatLahir: 'Bandung',
-          tanggalLahir: '1998-07-17',
-          pendidikanTerakhir: 'S1',
+          hari_pertama_haid_terakhir: '2024-10-01',
+          tempat_lahir: 'Bandung',
+          tanggal_lahir: '1998-07-17',
+          pendidikan_terakhir: 'S1',
           pekerjaan: 'Guru',
           alamat: 'Jl. Cinta Damai No. 40',
           telepon: '085172294832',
-          golonganDarah: 'a',
+          golongan_darah: 'B',
           pembiayaan: 'BPJS',
-          noJkn: '123423894453',
+          no_jkn: '123423894453',
           faskes: 'Faskesdsadsadsa',
-          faskesRujukan: 'Faskes B',
+          faskes_rujukan: 'Faskes B',
         },
       ],
       {
@@ -65,11 +68,6 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    /**
-     * Add commands to revert seed here.
-     *
-     * Example:
-     * await queryInterface.bulkDelete('People', null, {});
-     */
+    await queryInterface.bulkDelete('ibu_hamil', null, {});
   },
 };

@@ -11,7 +11,7 @@ module.exports = {
         allowNull: false,
       },
       tanggalDaftar: {
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
         defaultValue: Sequelize.NOW,
         field: 'tanggal_daftar',
         allowNull: false,
@@ -25,27 +25,27 @@ module.exports = {
         allowNull: false,
       },
       hpht: {
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
         field: 'hari_pertama_haid_terakhir',
         allowNull: false,
       },
       taksiranPersalinan: {
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
         field: 'taksiran_persalinan',
         allowNull: false,
       },
       tempatLahir: {
-        type: DataTypes.STRING,
+        type: Sequelize.STRING,
         field: 'tempat_lahir',
         allowNull: false,
       },
       tanggalLahir: {
-        type: DataTypes.DATE,
+        type: Sequelize.DATEONLY,
         field: 'tanggal_lahir',
         allowNull: false,
       },
       pendidikanTerakhir: {
-        type: DataTypes.ENUM,
+        type: Sequelize.ENUM,
         field: 'pendidikan_terakhir',
         values: ['-', 'SD', 'SMP', 'SMA', 'D3', 'S1', 'S2', 'S3'],
         defaultValue: '-',
@@ -62,7 +62,7 @@ module.exports = {
         allowNull: false,
       },
       golDarah: {
-        type: DataTypes.ENUM,
+        type: Sequelize.ENUM,
         field: 'golongan_darah',
         values: ['A', 'B', 'AB', 'O'],
         defaultValue: 'A',
@@ -72,7 +72,7 @@ module.exports = {
         allowNull: false,
       },
       noJkn: {
-        type: DataTypes.STRING,
+        type: Sequelize.STRING,
         field: 'no_jkn',
         allowNull: false,
       },
@@ -80,21 +80,21 @@ module.exports = {
         type: Sequelize.STRING,
       },
       faskesRujukan: {
-        type: DataTypes.STRING,
+        type: Sequelize.STRING,
         field: 'faskes_rujukan',
       },
       createdAt: {
-        type: DataTypes.DATE,
+        type: Sequelize.DATE,
         field: 'created_at',
         allowNull: false,
       },
       updatedAt: {
-        type: DataTypes.DATE,
+        type: Sequelize.DATE,
         field: 'updated_at',
         allowNull: false,
       },
       deletedAt: {
-        type: DataTypes.DATE,
+        type: Sequelize.DATE,
         field: 'deleted_at',
       },
     });
