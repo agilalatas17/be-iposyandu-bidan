@@ -1,13 +1,47 @@
 let express = require('express');
 let router = express.Router();
-let Validator = require('fastest-validator');
 const { IbuHamilModel } = require('../db/models');
 
-const validator = new Validator();
+// GET ALL
+router.get('/', async (req, res, next) => {
+  try {
+    const ibuHamilList = await IbuHamilModel.findAll();
 
-// GET
-router.get('/', function (req, res, next) {
-  res.send('respond with a resource');
+    return res.status(200).json({
+      message: 'Data ibu hamil berhasil diambil',
+      data: ibuHamilList,
+    });
+  } catch (error) {
+    res.status(400).json({
+      error: error.message,
+      message: 'Gagal mengambil data ibu hamil',
+    });
+  }
+});
+
+// GET By ID
+router.get('/:id', async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const ibuHamil = await IbuHamilModel.findByPk(id);
+
+    if (!ibuHamil) {
+      return res.status(404).json({
+        message: 'Data ibu hamil tidak ditemukan',
+      });
+    }
+
+    return res.status(200).json({
+      message: 'Berhasil',
+      data: ibuHamil,
+    });
+  } catch (error) {
+    res.status(400).json({
+      error: error.message,
+      message: 'Gagal mengambil data ibu hamil',
+    });
+  }
 });
 
 // POST

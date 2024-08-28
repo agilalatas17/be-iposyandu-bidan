@@ -16,6 +16,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/create-ibu-hamil', ibuHamilRouter);
+app.use('/ibu-hamil', ibuHamilRouter);
 
 module.exports = app;
