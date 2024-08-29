@@ -11,9 +11,9 @@ router.get('/', async (req, res, next) => {
       message: 'Data ibu hamil berhasil diambil',
       data: ibuHamilList,
     });
-  } catch (error) {
+  } catch (err) {
     res.status(400).json({
-      error: error.message,
+      error: err.message,
       message: 'Gagal mengambil data ibu hamil',
     });
   }
@@ -21,7 +21,7 @@ router.get('/', async (req, res, next) => {
 
 // GET By ID
 router.get('/:id', async (req, res) => {
-  const { id } = req.params;
+  const id = req.params.id;
 
   try {
     const ibuHamil = await IbuHamilModel.findByPk(id);
@@ -36,9 +36,9 @@ router.get('/:id', async (req, res) => {
       message: 'Berhasil',
       data: ibuHamil,
     });
-  } catch (error) {
+  } catch (err) {
     res.status(400).json({
-      error: error.message,
+      error: err.message,
       message: 'Gagal mengambil data ibu hamil',
     });
   }
@@ -99,11 +99,73 @@ router.post('/', async (req, res) => {
       message: 'Data ibu hamil berhasil ditambahkan',
       data: newIbuHamil,
     });
-  } catch (error) {
+  } catch (err) {
     return res.status(400).json({
       message: 'Gagal menambahkan data ibu hamil',
-      error: error.message,
+      error: err.message,
     });
+  }
+});
+
+router.put('/:id', async (req, res) => {
+  const id = req.params.id;
+  const ibuHamil = await IbuHamilModel.findByPk(id);
+
+  try {
+    if (!ibuHamil) {
+      return res.status(404).json({
+        status: 'error',
+        message: 'data tidak ditemukan',
+      });
+    }
+
+    const ibuHamilUpdate = await ibuHamil.update({
+      tanggalDaftar: req.body.tanggalDaftar,
+      nik: req.body.nik,
+      nama: req.body.nama,
+      hpht: req.body.hpht,
+      tempatLahir: req.body.tempatLahir,
+      tanggalLahir: req.body.tanggalLahir,
+      pendidikanTerakhir: req.body.pendidikanTerakhir,
+      pekerjaan: req.body.pekerjaan,
+      alamat: req.body.alamat,
+      telepon: req.body.telepon,
+      golDarah: req.body.golDarah,
+      pembiayaan: req.body.pembiayaan,
+      noJkn: req.body.noJkn,
+      faskes: req.body.faskes,
+      faskesRujukan: req.body.faskesRujukan,
+    });
+
+    return res.status(200).json({
+      message: 'data berhasil diperbarui',
+      data: ibuHamilUpdate,
+    });
+  } catch (err) {
+    res.status(400).json({
+      message: 'data gagal diperbarui',
+      error: err.message,
+    });
+  }
+});
+
+router.delete('/:id', async (req, res) => {
+  const id = req.params.id;
+  const ibuHamil = await IbuHamilModel.findByPk(id);
+
+  try {
+    if (!ibuHamil) {
+      return res.status(404).json({
+        status: 'error',
+        message: 'data tidak ditemukan',
+      });
+    }
+
+    await ibuHamil.destroy();
+
+    res.send('Berhasil dihapus');
+  } catch (err) {
+    res.status(400).send(err.message);
   }
 });
 

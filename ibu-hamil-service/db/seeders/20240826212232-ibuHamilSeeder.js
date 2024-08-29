@@ -23,6 +23,8 @@ module.exports = {
           no_jkn: '1234567890123',
           faskes: 'Faskesdsadsadsa',
           faskes_rujukan: 'Faskes B',
+          created_at: new Date(),
+          updated_at: new Date(),
         },
         {
           id: uuid,
@@ -41,6 +43,8 @@ module.exports = {
           no_jkn: '1234567894455',
           faskes: 'Faskesdsadsadsa',
           faskes_rujukan: 'Faskes B',
+          created_at: new Date(),
+          updated_at: new Date(),
         },
         {
           id: uuid,
@@ -59,6 +63,8 @@ module.exports = {
           no_jkn: '123423894453',
           faskes: 'Faskesdsadsadsa',
           faskes_rujukan: 'Faskes B',
+          created_at: new Date(),
+          updated_at: new Date(),
         },
       ],
       {
