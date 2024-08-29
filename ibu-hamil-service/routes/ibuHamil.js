@@ -44,7 +44,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// POST
+// CREATE
 router.post('/', async (req, res) => {
   let {
     tanggalDaftar,
@@ -72,9 +72,8 @@ router.post('/', async (req, res) => {
 
     // taksiran persalinan
     let hphtDate = new Date(hpht);
-    let taksiranPersalinanDate = new Date(
-      hphtDate.getTime() + 90 * 24 * 60 * 60 * 1000
-    );
+    let taksiranPersalinanDate = new Date(hphtDate);
+    taksiranPersalinanDate.setDate(hphtDate.getDate() + 280);
 
     let newIbuHamil = await IbuHamilModel.create({
       tanggalDaftar,
@@ -107,6 +106,7 @@ router.post('/', async (req, res) => {
   }
 });
 
+// UPDATE
 router.put('/:id', async (req, res) => {
   const id = req.params.id;
   const ibuHamil = await IbuHamilModel.findByPk(id);
@@ -119,11 +119,16 @@ router.put('/:id', async (req, res) => {
       });
     }
 
+    let hpht = new Date(req.body.hpht);
+    let taksiranPersalinanDate = new Date(hpht);
+    taksiranPersalinanDate.setDate(hpht.getDate() + 280);
+
     const ibuHamilUpdate = await ibuHamil.update({
       tanggalDaftar: req.body.tanggalDaftar,
       nik: req.body.nik,
       nama: req.body.nama,
-      hpht: req.body.hpht,
+      hpht,
+      taksiranPersalinanDate,
       tempatLahir: req.body.tempatLahir,
       tanggalLahir: req.body.tanggalLahir,
       pendidikanTerakhir: req.body.pendidikanTerakhir,
@@ -149,6 +154,7 @@ router.put('/:id', async (req, res) => {
   }
 });
 
+// DELETE
 router.delete('/:id', async (req, res) => {
   const id = req.params.id;
   const ibuHamil = await IbuHamilModel.findByPk(id);
