@@ -1,5 +1,3 @@
-const KunjunganModel = require('./KunjunganModel');
-
 module.exports = (sequelize, DataTypes) => {
   const IbuHamilModel = sequelize.define(
     'IbuHamilModel',
@@ -104,9 +102,11 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
 
-  // IbuHamilModel.associate = (models) => {
-  //   IbuHamilModel.hasMany(models.KunjunganModel, { foreignKey: 'ibuHamilId' });
-  // };
+  IbuHamilModel.associate = (models) => {
+    IbuHamilModel.hasMany(models.KunjunganModel, {
+      foreignKey: 'ibu_hamil_id',
+    });
+  };
 
   return IbuHamilModel;
 };

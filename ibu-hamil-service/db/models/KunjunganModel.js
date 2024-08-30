@@ -1,5 +1,3 @@
-const IbuHamilModel = require('./IbuHamilModel');
-
 module.exports = (sequelize, DataTypes) => {
   const KunjunganModel = sequelize.define(
     'KunjunganModel',
@@ -17,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       usiaKehamilan: {
         type: DataTypes.INTEGER,
-        field: 'tanggal_kunjungan',
+        field: 'usia_kehamilan',
         allowNull: false,
       },
       trimesterKe: {
@@ -49,7 +47,8 @@ module.exports = (sequelize, DataTypes) => {
 
   KunjunganModel.associate = (models) => {
     KunjunganModel.belongsTo(models.IbuHamilModel, {
-      foreignKey: 'ibuHamilId',
+      foreignKey: 'ibu_hamil_id',
+      as: 'ibuHamilId',
     });
   };
 

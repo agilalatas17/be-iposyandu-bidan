@@ -6,6 +6,7 @@ let logger = require('morgan');
 
 let indexRouter = require('./routes/index');
 let ibuHamilRouter = require('./routes/ibuHamil');
+let kunjunganIbuHamilRouter = require('./routes/kunjunganIbuHamil');
 
 let app = express();
 
@@ -17,5 +18,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/api/ibu-hamil', ibuHamilRouter);
+app.use('/api/kunjungan-ibu-hamil', kunjunganIbuHamilRouter);
 
 module.exports = app;
