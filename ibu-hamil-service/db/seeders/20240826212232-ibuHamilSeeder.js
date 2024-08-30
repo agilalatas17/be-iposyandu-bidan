@@ -1,5 +1,7 @@
 'use strict';
 
+const { v4: uuidv4 } = require('uuid');
+
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
@@ -7,11 +9,12 @@ module.exports = {
       'ibu_hamil',
       [
         {
-          id: uuid,
+          id: uuidv4(),
           tanggal_daftar: '2024-06-28',
           nik: '3209231909010002',
           nama: 'Siti',
-          hari_pertama_haid_terakhir: '2024-08-01',
+          hari_pertama_haid_terakhir: new Date('2024-08-01'),
+          taksiran_persalinan: new Date(),
           tempat_lahir: 'Bandung',
           tanggal_lahir: '2001-09-19',
           pendidikan_terakhir: 'SMA',
@@ -27,11 +30,12 @@ module.exports = {
           updated_at: new Date(),
         },
         {
-          id: uuid,
+          id: uuidv4(),
           tanggal_daftar: '2024-10-17',
           nik: '3209231707980003',
           nama: 'Munaroh',
-          hari_pertama_haid_terakhir: '2024-10-01',
+          hari_pertama_haid_terakhir: new Date('2024-10-01'),
+          taksiran_persalinan: new Date('2024-10-01'),
           tempat_lahir: 'Bandung',
           tanggal_lahir: '1998-07-17',
           pendidikan_terakhir: 'D3',
@@ -47,11 +51,12 @@ module.exports = {
           updated_at: new Date(),
         },
         {
-          id: uuid,
+          id: uuidv4(),
           tanggal_daftar: '2024-02-02',
           nik: '3209231909010004',
-          nama: 'Hinata',
-          hari_pertama_haid_terakhir: '2024-10-01',
+          nama: 'Eudora',
+          hari_pertama_haid_terakhir: new Date('2024-08-08'),
+          taksiran_persalinan: new Date('2024-08-08'),
           tempat_lahir: 'Bandung',
           tanggal_lahir: '1998-07-17',
           pendidikan_terakhir: 'S1',
