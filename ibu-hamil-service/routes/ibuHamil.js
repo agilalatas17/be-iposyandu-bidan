@@ -119,9 +119,13 @@ router.put('/:id', async (req, res) => {
       });
     }
 
-    let hpht = new Date(req.body.hpht);
-    let taksiranPersalinanDate = new Date(hpht);
-    taksiranPersalinanDate.setDate(hpht.getDate() + 280);
+    let hpht = req.body.hpht;
+    let taksiranPersalinanDate;
+    if (hpht) {
+      hpht = new Date(hpht);
+      taksiranPersalinanDate = new Date(hpht);
+      taksiranPersalinanDate.setDate(hpht.getDate() + 280);
+    }
 
     const ibuHamilUpdate = await ibuHamil.update({
       tanggalDaftar: req.body.tanggalDaftar,

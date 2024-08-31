@@ -18,6 +18,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/api/ibu-hamil', ibuHamilRouter);
-app.use('/api/kunjungan-ibu-hamil', kunjunganIbuHamilRouter);
+app.use('/api/ibu-hamil/kunjungan', kunjunganIbuHamilRouter);
 
 module.exports = app;
