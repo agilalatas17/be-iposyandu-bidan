@@ -102,11 +102,5 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
 
-  IbuHamilModel.associate = (models) => {
-    IbuHamilModel.hasMany(models.KunjunganModel, {
-      foreignKey: 'ibu_hamil_id',
-    });
-  };
-
   return IbuHamilModel;
 };

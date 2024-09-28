@@ -51,6 +51,7 @@ router.post('/', async (req, res) => {
     nik,
     nama,
     hpht,
+    taksiranPersalinanDate,
     tempatLahir,
     tanggalLahir,
     pendidikanTerakhir,
@@ -72,15 +73,15 @@ router.post('/', async (req, res) => {
 
     // taksiran persalinan
     let hphtDate = new Date(hpht);
-    let taksiranPersalinanDate = new Date(hphtDate);
-    taksiranPersalinanDate.setDate(hphtDate.getDate() + 280);
+    let hitungTaksiranPersalinanDate = new Date(hphtDate);
+    hitungTaksiranPersalinanDate.setDate(hphtDate.getDate() + 280);
 
-    let newIbuHamil = await IbuHamilModel.create({
+    const newIbuHamil = await IbuHamilModel.create({
       tanggalDaftar,
       nik,
       nama,
       hpht,
-      taksiranPersalinanDate,
+      taksiranPersalinanDate: hitungTaksiranPersalinanDate,
       tempatLahir,
       tanggalLahir,
       pendidikanTerakhir,
@@ -94,6 +95,7 @@ router.post('/', async (req, res) => {
       faskesRujukan,
     });
 
+    console.log('NEW IBU HAMIL', newIbuHamil);
     return res.status(201).json({
       message: 'Data ibu hamil berhasil ditambahkan',
       data: newIbuHamil,
