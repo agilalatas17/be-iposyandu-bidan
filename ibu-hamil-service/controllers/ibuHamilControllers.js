@@ -1,15 +1,26 @@
-let express = require('express');
-let router = express.Router();
 const { IbuHamilModel } = require('../db/models');
 
-// GET ALL
-router.get('/', async (req, res, next) => {
+const countIbuHamil = async (req, res) => {
   try {
-    const ibuHamilList = await IbuHamilModel.findAll();
+    const jumlahIbuHamil = await IbuHamilModel.count();
+
+    return res.status(200).json({ jumlahIbuHamil });
+  } catch (err) {
+    res.status(400).json({
+      message: 'Gagal mengambil data',
+      error: err.message,
+    });
+  }
+};
+
+const getAllIbuHamil = async (req, res) => {
+  try {
+    const ibuHamilData = await IbuHamilModel.findAll();
+    console.log('ALL DATA', ibuHamilData);
 
     return res.status(200).json({
       message: 'Data ibu hamil berhasil diambil',
-      data: ibuHamilList,
+      data: ibuHamilData,
     });
   } catch (err) {
     res.status(400).json({
@@ -17,14 +28,13 @@ router.get('/', async (req, res, next) => {
       message: 'Gagal mengambil data ibu hamil',
     });
   }
-});
+};
 
-// GET By ID
-router.get('/:id', async (req, res) => {
+const getIbuHamilById = async (req, res) => {
   const id = req.params.id;
 
   try {
-    const ibuHamil = await IbuHamilModel.findByPk(id);
+    const ibuHamilData = await IbuHamilModel.findByPk(id);
 
     if (!ibuHamil) {
       return res.status(404).json({
@@ -34,7 +44,7 @@ router.get('/:id', async (req, res) => {
 
     return res.status(200).json({
       message: 'Berhasil',
-      data: ibuHamil,
+      data: ibuHamilData,
     });
   } catch (err) {
     res.status(400).json({
@@ -42,10 +52,9 @@ router.get('/:id', async (req, res) => {
       message: 'Gagal mengambil data ibu hamil',
     });
   }
-});
+};
 
-// CREATE
-router.post('/', async (req, res) => {
+const createIbuHamil = async (req, res) => {
   let {
     tanggalDaftar,
     nik,
@@ -106,10 +115,9 @@ router.post('/', async (req, res) => {
       error: err.message,
     });
   }
-});
+};
 
-// UPDATE
-router.put('/:id', async (req, res) => {
+const updateIbuHamil = async (req, res) => {
   const id = req.params.id;
   const ibuHamil = await IbuHamilModel.findByPk(id);
 
@@ -158,10 +166,9 @@ router.put('/:id', async (req, res) => {
       error: err.message,
     });
   }
-});
+};
 
-// DELETE
-router.delete('/:id', async (req, res) => {
+const deleteIbuHamil = async (req, res) => {
   const id = req.params.id;
   const ibuHamil = await IbuHamilModel.findByPk(id);
 
@@ -179,6 +186,13 @@ router.delete('/:id', async (req, res) => {
   } catch (err) {
     res.status(400).send(err.message);
   }
-});
+};
 
-module.exports = router;
+module.exports = {
+  countIbuHamil,
+  getAllIbuHamil,
+  getIbuHamilById,
+  createIbuHamil,
+  updateIbuHamil,
+  deleteIbuHamil,
+};
