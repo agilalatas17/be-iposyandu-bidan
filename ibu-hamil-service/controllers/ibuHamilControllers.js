@@ -36,14 +36,14 @@ const getIbuHamilById = async (req, res) => {
   try {
     const ibuHamilData = await IbuHamilModel.findByPk(id);
 
-    if (!ibuHamil) {
+    if (!ibuHamilData) {
       return res.status(404).json({
         message: 'Data ibu hamil tidak ditemukan',
       });
     }
 
     return res.status(200).json({
-      message: 'Berhasil',
+      message: 'Berhasil mengambil data',
       data: ibuHamilData,
     });
   } catch (err) {
