@@ -6,7 +6,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
 const indexRouter = require('./routes/index');
-const ibuHamilRouter = require('./routes/ibuHamil');
+const ibuHamilRouter = require('./routes/ibuHamilRoute');
 
 const app = express();
 app.use(cors());
@@ -18,6 +18,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/ibu-hamil', ibuHamilRouter);
+app.use(ibuHamilRouter);
 
 module.exports = app;
