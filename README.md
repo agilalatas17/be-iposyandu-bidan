@@ -2,6 +2,6 @@
 
 ## Tools
 
-- Nodejs v20 (LTS)
+- Nodejs v20
 - PostgreSQL v16
 - Sequelize v6
