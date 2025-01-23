@@ -1,5 +1,5 @@
 const bcrypt = require('bcrypt');
-const { BidanModel } = require('../db/models');
+const { BidanModel } = require('../../db/models');
 
 module.exports = async (req, res) => {
   try {

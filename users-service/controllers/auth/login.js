@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt');
 const Validator = require('fastest-validator');
-const { BidanModel } = require('../db/models');
+const { BidanModel } = require('../../db/models');
 
 module.exports = async (req, res) => {
   const v = new Validator();
