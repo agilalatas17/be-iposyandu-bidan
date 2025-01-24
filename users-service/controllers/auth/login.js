@@ -25,7 +25,7 @@ module.exports = async (req, res) => {
   if (!user) {
     return res.status(404).json({
       status: 'error',
-      message: 'Pengguna tidak ditemukan',
+      message: 'Nomor telepon salah',
     });
   }
 
@@ -38,7 +38,7 @@ module.exports = async (req, res) => {
   if (!isValidPassword) {
     return res.status(404).json({
       status: 'error',
-      message: 'Pengguna tidak ditemukan',
+      message: 'Password salah',
     });
   }
 
