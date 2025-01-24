@@ -90,15 +90,15 @@ module.exports = (sequelize, DataTypes) => {
         field: 'updated_at',
         allowNull: false,
       },
-      deletedAt: {
-        type: DataTypes.DATE,
-        field: 'deleted_at',
-      },
+      // deletedAt: {
+      //   type: DataTypes.DATE,
+      //   field: 'deleted_at',
+      // },
     },
     {
       tableName: 'ibu_hamil',
       modelName: 'IbuHamilModel',
-      paranoid: true,
+      // paranoid: true,
     }
   );
 
