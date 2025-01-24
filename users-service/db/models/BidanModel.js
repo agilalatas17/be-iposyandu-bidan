@@ -43,7 +43,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       tableName: 'bidans',
       modelName: 'BidanModel',
-      paranoid: true,
+      // paranoid: true,
     }
   );
 

@@ -36,7 +36,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       tableName: 'refresh_token',
       modelName: 'RefreshTokenModel',
-      paranoid: true,
+      // paranoid: true,
     }
   );
 
