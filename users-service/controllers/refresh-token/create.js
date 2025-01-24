@@ -4,11 +4,11 @@ const Validator = require('fastest-validator');
 module.exports = async (req, res) => {
   const v = new Validator();
   const bidanId = req.body.bidanId;
-  const refreshToken = req.body.refresh_token;
+  const refreshToken = req.body.refreshToken;
 
   const schema = {
-    refreshTokena: 'string',
-    bidanId: 'number',
+    refreshToken: 'string',
+    bidanId: 'string',
   };
 
   const validate = v.validate(req.body, schema);
