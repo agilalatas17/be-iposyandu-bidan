@@ -6,8 +6,9 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
 const indexRouter = require('./routes/index');
-const ibuHamilRouter = require('./routes/ibuHamilRoute');
 const usersRouter = require('./routes/usersRoute');
+const ibuHamilRouter = require('./routes/ibuHamilRoute');
+const refreshTokenRouter = require('./routes/refreshTokenRoute');
 
 const app = express();
 app.use(cors());
@@ -21,5 +22,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use(ibuHamilRouter);
 app.use(usersRouter);
+app.use(refreshTokenRouter);
 
 module.exports = app;
