@@ -16,7 +16,6 @@ const countIbuHamil = async (req, res) => {
 const getAllIbuHamil = async (req, res) => {
   try {
     const ibuHamilData = await IbuHamilModel.findAll();
-    console.log('ALL DATA', ibuHamilData);
 
     return res.status(200).json({
       message: 'Data ibu hamil berhasil diambil',
@@ -104,7 +103,6 @@ const createIbuHamil = async (req, res) => {
       faskesRujukan,
     });
 
-    console.log('NEW IBU HAMIL', newIbuHamil);
     return res.status(201).json({
       message: 'Data ibu hamil berhasil ditambahkan',
       data: newIbuHamil,
