@@ -90,17 +90,20 @@ module.exports = (sequelize, DataTypes) => {
         field: 'updated_at',
         allowNull: false,
       },
-      // deletedAt: {
-      //   type: DataTypes.DATE,
-      //   field: 'deleted_at',
-      // },
     },
     {
       tableName: 'ibu_hamil',
       modelName: 'IbuHamilModel',
-      // paranoid: true,
     }
   );
+
+  IbuHamilModel.associate = function (models) {
+    // relasi one-to-many: IbuHamil -> Kunjungan
+    IbuHamilModel.hasMany(models.KunjunganModel, {
+      foreignKey: 'ibu_hamil_id',
+      as: 'kunjungan',
+    });
+  };
 
   return IbuHamilModel;
 };

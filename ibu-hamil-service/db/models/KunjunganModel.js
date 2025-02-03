@@ -1,0 +1,67 @@
+module.exports = (sequelize, DataTypes) => {
+  const KunjunganModel = sequelize.define(
+    'KunjunganModel',
+    {
+      id: {
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
+        primaryKey: true,
+        allowNull: false,
+      },
+      ibu_hamil_id: {
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
+        primaryKey: true,
+        allowNull: false,
+        references: {
+          model: 'ibu_hamil',
+          key: 'id',
+        },
+        onDelete: 'CASCADE',
+      },
+      tanggal_daftar: {
+        type: DataTypes.DATEONLY,
+        defaultValue: DataTypes.NOW,
+        allowNull: false,
+      },
+      usia_kehamilan: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      trimester_ke: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      keluhan: {
+        type: DataTypes.TEXT,
+      },
+      berat_badan: {
+        type: DataTypes.INTEGER,
+      },
+      tinggi_badan: {
+        type: DataTypes.INTEGER,
+      },
+      indeks_masa_tubuh: {
+        type: DataTypes.INTEGER,
+      },
+      tekanan_darah: {
+        type: DataTypes.INTEGER,
+      },
+    },
+    {
+      tableName: 'kunjungan',
+      modelName: 'KunjunganModel',
+      timestamps: true,
+    }
+  );
+
+  KunjunganModel.associate = function (models) {
+    // relasi belongsTo: Kunjungan -> IbuHamil
+    KunjunganModel.belongsTo(models.IbuHamilModel, {
+      foreignKey: 'ibu_hamil_id',
+      as: 'ibu_hamil',
+    });
+  };
+
+  return KunjunganModel;
+};
