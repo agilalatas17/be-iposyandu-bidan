@@ -59,7 +59,6 @@ const createIbuHamil = async (req, res) => {
     nik,
     nama,
     hpht,
-    taksiranPersalinanDate,
     tempatLahir,
     tanggalLahir,
     pendidikanTerakhir,
