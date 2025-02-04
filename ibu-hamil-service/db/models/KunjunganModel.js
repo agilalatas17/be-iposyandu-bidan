@@ -42,16 +42,25 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
       },
       indeks_masa_tubuh: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
       },
       tekanan_darah: {
         type: DataTypes.INTEGER,
+      },
+      createdAt: {
+        type: DataTypes.DATE,
+        field: 'created_at',
+        allowNull: false,
+      },
+      updatedAt: {
+        type: DataTypes.DATE,
+        field: 'updated_at',
+        allowNull: false,
       },
     },
     {
       tableName: 'kunjungan',
       modelName: 'KunjunganModel',
-      timestamps: true,
     }
   );
 

@@ -44,17 +44,19 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       indeks_masa_tubuh: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
       },
       tekanan_darah: {
         type: Sequelize.INTEGER,
       },
-      created_at: {
+      createdAt: {
         type: Sequelize.DATE,
+        field: 'created_at',
         allowNull: false,
       },
-      updated_at: {
+      updatedAt: {
         type: Sequelize.DATE,
+        field: 'updated_at',
         allowNull: false,
       },
     });
