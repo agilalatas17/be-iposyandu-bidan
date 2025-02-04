@@ -5,16 +5,21 @@ const {
   hitungIndeksMasaTubuh,
 } = require('../../utils');
 
-const createKunjungan = async (req, res) => {
+module.exports = async (req, res) => {
   try {
     const {
       ibu_hamil_id,
       tanggal_daftar,
+      keluhan,
       berat_badan,
       tinggi_badan,
       tekanan_darah,
-      keluhan,
+      detak_jantung_janin,
+      kepala_thd_pap,
+      taksiran_bb_janin,
+      jumlah_janin,
     } = req.body;
+
     let ibuHamil = await IbuHamilModel.findByPk(ibu_hamil_id);
     if (!ibuHamil) {
       throw new Error('Ibu hamil tidak ditemukan');
@@ -39,6 +44,10 @@ const createKunjungan = async (req, res) => {
       tinggi_badan,
       indeks_masa_tubuh: imt,
       tekanan_darah,
+      detak_jantung_janin,
+      kepala_thd_pap,
+      taksiran_bb_janin,
+      jumlah_janin,
     });
 
     res.status(200).json({
@@ -51,8 +60,4 @@ const createKunjungan = async (req, res) => {
       error: err.message,
     });
   }
-};
-
-module.exports = {
-  createKunjungan,
 };
