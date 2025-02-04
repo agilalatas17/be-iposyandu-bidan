@@ -20,6 +20,7 @@ module.exports = async (req, res) => {
 
   const { id } = req.params;
   const kunjungan = await KunjunganModel.findByPk(id);
+  const ibuHamil = await IbuHamilModel.findByPk(kunjungan.ibu_hamil_id);
 
   try {
     if (!kunjungan) {
@@ -32,11 +33,12 @@ module.exports = async (req, res) => {
     let usiaKehamilan, trimester;
     if (tanggal_daftar) {
       // Hitung usia kehamilan
-      usiaKehamilan = hitungUsiaKehamilan(IbuHamilModel.hpht, tanggal_daftar);
+      usiaKehamilan = hitungUsiaKehamilan(ibuHamil.hpht, tanggal_daftar);
 
       // Tentukan trimester
       trimester = hitungTrimester(usiaKehamilan);
     }
+    console.log('TIPE DATA :', typeof usiaKehamilan);
 
     let imt;
     if (berat_badan && tinggi_badan) {
