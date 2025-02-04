@@ -47,6 +47,22 @@ module.exports = (sequelize, DataTypes) => {
       tekanan_darah: {
         type: DataTypes.INTEGER,
       },
+      detak_jantung_janin: {
+        type: DataTypes.INTEGER,
+      },
+      kepala_thd_pap: {
+        type: DataTypes.ENUM,
+        values: ['M', 'BM'],
+        defaultValue: '-',
+      },
+      taksiran_bb_janin: {
+        type: DataTypes.INTEGER,
+      },
+      jumlah_janin: {
+        type: DataTypes.ENUM,
+        values: ['T', 'G'],
+        defaultValue: '-',
+      },
       createdAt: {
         type: DataTypes.DATE,
         field: 'created_at',
