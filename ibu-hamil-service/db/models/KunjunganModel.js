@@ -53,7 +53,6 @@ module.exports = (sequelize, DataTypes) => {
       kepala_thd_pap: {
         type: DataTypes.ENUM,
         values: ['M', 'BM'],
-        defaultValue: '-',
       },
       taksiran_bb_janin: {
         type: DataTypes.INTEGER,
@@ -61,7 +60,6 @@ module.exports = (sequelize, DataTypes) => {
       jumlah_janin: {
         type: DataTypes.ENUM,
         values: ['T', 'G'],
-        defaultValue: '-',
       },
       createdAt: {
         type: DataTypes.DATE,
