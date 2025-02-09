@@ -59,7 +59,6 @@ const createIbuHamil = async (req, res) => {
     nik,
     nama,
     hpht,
-    taksiranPersalinanDate,
     tempatLahir,
     tanggalLahir,
     pendidikanTerakhir,
@@ -76,7 +75,10 @@ const createIbuHamil = async (req, res) => {
   try {
     const existingData = await IbuHamilModel.findOne({ where: { nik } });
     if (existingData) {
-      return res.status(400).json({ message: 'Data dengan NIK ini sudah ada' });
+      return res.json({
+        status: 409,
+        message: 'Data dengan NIK ini sudah ada',
+      });
     }
 
     // taksiran persalinan
