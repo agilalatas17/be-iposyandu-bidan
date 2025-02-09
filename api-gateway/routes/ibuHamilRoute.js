@@ -9,6 +9,9 @@ const createIbuHamil = require('../controllers/ibu-hamil/create');
 const updateIbuHamil = require('../controllers/ibu-hamil/update');
 const deleteIbuHamil = require('../controllers/ibu-hamil/destroy');
 
+const createKunjungan = require('../controllers/ibu-hamil/kunjungan/create');
+const getAllKunjungan = require('../controllers/ibu-hamil/kunjungan/getAll');
+
 // With JWT
 // router.get('/api/ibu-hamil/jumlah-data', verifyToken, jumlahIbuHamil);
 // router.get('/api/ibu-hamil', verifyToken, getAllIbuHamil);
@@ -24,5 +27,8 @@ router.get('/api/ibu-hamil/:id', getIbuHamilById);
 router.post('/api/ibu-hamil/create', createIbuHamil);
 router.put('/api/ibu-hamil/:id', updateIbuHamil);
 router.delete('/api/ibu-hamil/:id', deleteIbuHamil);
+
+router.get('/api/ibu-hamil/:ibu_hamil_id/kunjungan', getAllKunjungan);
+router.post('/api/ibu-hamil/kunjungan', createKunjungan);
 
 module.exports = router;
