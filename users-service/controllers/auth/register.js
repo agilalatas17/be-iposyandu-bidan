@@ -12,19 +12,24 @@ module.exports = async (req, res) => {
     });
 
     if (userEmail && userTelp) {
-      return res
-        .status(409)
-        .json({ message: 'Email dan nomor telepon sudah digunakan!' });
+      return res.status(409).json({
+        status: 409,
+        message: 'Email dan nomor telepon sudah digunakan!',
+      });
     }
 
     if (userEmail) {
-      return res.status(409).json({ message: 'Email sudah digunakan!' });
+      return res.status(409).json({
+        status: 409,
+        message: 'Email sudah digunakan!',
+      });
     }
 
     if (userTelp) {
-      return res
-        .status(409)
-        .json({ message: 'Nomor telepon sudah digunakan!' });
+      return res.status(409).json({
+        status: 409,
+        message: 'Nomor telepon sudah digunakan!',
+      });
     }
 
     const password = await bcrypt.hash(req.body.password, 10);
@@ -38,6 +43,7 @@ module.exports = async (req, res) => {
 
     return res.status(201).json({
       message: 'Berhasil daftar',
+      status: 201,
       data: {
         id: createUser,
       },

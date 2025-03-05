@@ -11,7 +11,11 @@ const ibuHamilRouter = require('./routes/ibuHamilRoute');
 const refreshTokenRouter = require('./routes/refreshTokenRoute');
 
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    allowedHeaders: ['Content-Type', 'Authorization'],
+  })
+);
 
 app.use(logger('dev'));
 app.use(express.json());
