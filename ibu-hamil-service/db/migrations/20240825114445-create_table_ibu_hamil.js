@@ -93,10 +93,6 @@ module.exports = {
         field: 'updated_at',
         allowNull: false,
       },
-      // deletedAt: {
-      //   type: Sequelize.DATE,
-      //   field: 'deleted_at',
-      // },
     });
   },
 
