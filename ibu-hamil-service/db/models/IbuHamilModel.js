@@ -8,6 +8,14 @@ module.exports = (sequelize, DataTypes) => {
         primaryKey: true,
         allowNull: false,
       },
+      bidan_id: {
+        type: DataTypes.UUID,
+        references: {
+          model: 'bidans',
+          key: 'id',
+        },
+        allowNull: false,
+      },
       tanggalDaftar: {
         type: DataTypes.DATEONLY,
         field: 'tanggal_daftar',
