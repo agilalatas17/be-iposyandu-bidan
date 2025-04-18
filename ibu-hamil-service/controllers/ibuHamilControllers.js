@@ -1,8 +1,14 @@
+const { where } = require('sequelize');
 const { IbuHamilModel } = require('../db/models');
 
 const countIbuHamil = async (req, res) => {
   try {
-    const jumlahIbuHamil = await IbuHamilModel.count();
+    const { bidan_id } = req.query;
+    const jumlahIbuHamil = await IbuHamilModel.count({
+      where: {
+        bidan_id: bidan_id,
+      },
+    });
 
     return res.status(200).json({ jumlahIbuHamil });
   } catch (err) {
@@ -15,7 +21,13 @@ const countIbuHamil = async (req, res) => {
 
 const getAllIbuHamil = async (req, res) => {
   try {
-    const ibuHamilData = await IbuHamilModel.findAll();
+    const { bidan_id } = req.query;
+
+    const ibuHamilData = await IbuHamilModel.findAll({
+      where: {
+        bidan_id: bidan_id,
+      },
+    });
 
     return res.status(200).json({
       message: 'Data ibu hamil berhasil diambil',
@@ -70,6 +82,7 @@ const createIbuHamil = async (req, res) => {
     noJkn,
     faskes,
     faskesRujukan,
+    bidan_id,
   } = req.body;
 
   try {
@@ -103,6 +116,7 @@ const createIbuHamil = async (req, res) => {
       noJkn,
       faskes,
       faskesRujukan,
+      bidan_id,
     });
 
     return res.status(201).json({
