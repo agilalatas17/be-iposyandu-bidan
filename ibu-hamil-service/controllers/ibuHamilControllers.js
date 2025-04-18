@@ -119,8 +119,6 @@ const createIbuHamil = async (req, res) => {
       bidan_id,
     });
 
-    console.log('CEK NEW IBU HAMIL : ', newIbuHamil);
-
     return res.status(201).json({
       message: 'Data ibu hamil berhasil ditambahkan',
       data: newIbuHamil,
