@@ -38,7 +38,6 @@ module.exports = async (req, res) => {
       // Tentukan trimester
       trimester = hitungTrimester(usiaKehamilan);
     }
-    console.log('TIPE DATA :', typeof usiaKehamilan);
 
     let imt;
     if (berat_badan && tinggi_badan) {
