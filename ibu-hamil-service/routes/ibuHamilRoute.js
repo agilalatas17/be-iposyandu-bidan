@@ -1,16 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const {
-  countIbuHamil,
-  getAllIbuHamil,
-  getIbuHamilById,
-  createIbuHamil,
-  updateIbuHamil,
-  deleteIbuHamil,
-} = require('../controllers/ibuHamilControllers');
 
-router.get('/api/ibu-hamil/jumlah-data', countIbuHamil);
-router.get('/api/ibu-hamil', getAllIbuHamil);
+const getCountIbuHamil = require('../controllers/ibu-hamil/count');
+const getAllIbuHamil = require('../controllers/ibu-hamil/getAll');
+const getIbuHamilById = require('../controllers/ibu-hamil/getById');
+const createIbuHamil = require('../controllers/ibu-hamil/create');
+const updateIbuHamil = require('../controllers/ibu-hamil/update');
+const deleteIbuHamil = require('../controllers/ibu-hamil/destroy');
+
+router.get('/api/ibu-hamil/jumlah-data', getCountIbuHamil);
+router.get('/api/ibu-hamil/', getAllIbuHamil);
 router.get('/api/ibu-hamil/:id', getIbuHamilById);
 router.post('/api/ibu-hamil', createIbuHamil);
 router.put('/api/ibu-hamil/:id', updateIbuHamil);
