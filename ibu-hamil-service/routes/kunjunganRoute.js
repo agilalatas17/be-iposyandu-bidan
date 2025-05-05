@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-const getAllKunjungan = require('../controllers/kunjungan/getAll.js');
-const getKunjunganById = require('../controllers/kunjungan/getById.js');
+const getAllKunjungan = require('../controllers/kunjungan/getAll');
+const getKunjunganById = require('../controllers/kunjungan/getById');
 const createKunjungan = require('../controllers/kunjungan/create');
 const updateKunjungan = require('../controllers/kunjungan/update');
 const deleteKunjungan = require('../controllers/kunjungan/destroy');
